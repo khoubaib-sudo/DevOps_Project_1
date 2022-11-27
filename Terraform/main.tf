@@ -3,7 +3,8 @@ data "aws_ami" "amazon-linux" {
 
   filter {
     name   = "name"
-    values = ["amzn2-ami-kernel-5.10-hvm-*-x86_64-gp2"]
+    values = ["amzn2-ami-kernel-5.10-hvm-2.0.20221103.3-x86_64-gp2"]
+    
   }
 
   filter {
@@ -14,8 +15,8 @@ data "aws_ami" "amazon-linux" {
 
 resource "aws_instance" "dev_machine" {
   ami = data.aws_ami.amazon-linux.id
-  instance_type = "t2.micro"
-  key_name = "euran-jenkins"
+  instance_type = "t2.medium"
+  key_name = "jenkins-server"
 
   tags = {
     Environment = "dev"
