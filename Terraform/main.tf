@@ -16,7 +16,7 @@ data "aws_ami" "amazon-linux" {
 resource "aws_instance" "dev_machine" {
   ami = data.aws_ami.amazon-linux.id
   instance_type = "t2.medium"
-  key_name = "jenkins-server"
+  key_name = "khoubaib"
 
   tags = {
     Environment = "dev"
